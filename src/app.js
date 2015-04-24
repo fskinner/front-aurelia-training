@@ -14,7 +14,7 @@ export class App {
         { route: '',         moduleId: './home',     nav: true, title: 'Home' },
         { route: 'welcome',  moduleId: './welcome',  nav: true, title: 'Welcome' },
         { route: 'flickr',   moduleId: './flickr',   nav: true },
-        { route: 'child-router', moduleId: './child-router', nav: true, title: 'Projects' }
+        { route: 'projects', moduleId: './projects', nav: true, title: 'Projects' }
       ]);
     });
   }

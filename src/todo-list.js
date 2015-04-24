@@ -1,5 +1,6 @@
 import {inject} from 'aurelia-framework';
 import {Todo} from './todo';
+import _ from 'lodash';
 
 @inject(Todo)
 export class TodoList {
@@ -16,12 +17,16 @@ export class TodoList {
     return false;
   }
 
-  remove(index) {
-    todos.splice(index,1);
+  remove_completed() {
+  this.todos =  _.where(this.todos, {'done': false});
   }
 
   toggle_complete(todo) {
     if(todo.done) todo.not_done();
     else todo.complete();
+  }
+
+  get summary() {
+    return _.where(this.todos, {'done': false}).length;
   }
 }

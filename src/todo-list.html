@@ -7,13 +7,19 @@
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
-  
-  <div class="col-md-4">
-    <ul class="well nav nav-pills nav-stacked">
-      <li repeat.for="item of todos" class="${item.done ? 'todo-completed' : ''}">
-        <span>${item.text}</span><button type="button" class="btn btn-mini ${item.done ? 'btn-danger' : 'btn-success'}" click.delegate="$parent.toggle_complete(item)">${item.done ? 'X' : '✓'}</a>
-      </li>
-    </ul>
+  <div class="col-md-12 todo-list">
+    <div class="col-md-8">
+      <ul class="well nav nav-pills nav-stacked">
+        <li repeat.for="item of todos" class="${item.done ? 'todo-completed' : ''} todo-item">
+          <span>${item.text}</span><button type="button" class="right btn btn-mini ${item.done ? 'btn-danger' : 'btn-success'}" click.delegate="$parent.toggle_complete(item)">${item.done ? 'X' : '✓'}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-4">
+      <span>${summary} items left to be done of ${todos.length} total</span>
+      <button type="button" class="btn btn-default" click.delegate="remove_completed()">Remove completed tasks</button>
+    </div>
   </div>
 
 </template>
